@@ -13,8 +13,8 @@ REST-Rant is an app where users can review restaurants.
 ## Color Schemes
 
 The following colors were chosen (using Colormind.io):
-![Color Scheme 1](assets/color_scheme/colors1.png)
-![Color Scheme 2](assets/color_scheme/colors2.png)
+![Color Scheme 1](/assets/color_scheme/colors1.png)
+![Color Scheme 2](/assets/color_scheme/colors2.png)
 
 ## Routes
 
