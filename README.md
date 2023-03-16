@@ -37,3 +37,20 @@ The following routes will be supported by the REST-Rant app.
 | POST   | /places/:id/rant         | Create a rant (comment) about a particular place |
 | DELETE | /places/:id/rant/:rantId | Delete a rant (comment) about a particular place |
 | GET    | \*                       | 404 page(matches any route not defined above)    |
+
+# Data
+
+This section documents the data we will be storing for the different items
+
+### Places
+
+| Info     | Type   |
+| -------- | ------ |
+| Name     | String |
+| City     | String |
+| Cuisines | String |
+| Picture  | String |
+
+### Rants
+
+TBD
