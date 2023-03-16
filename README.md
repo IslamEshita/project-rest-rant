@@ -16,6 +16,10 @@ The following colors were chosen (using Colormind.io):
 ![Color Scheme 1](/assets/color_scheme/colors_1.png)
 ![Color Scheme 2](/assets/color_scheme/colors_2.png)
 
+## Wire Frames
+
+This section will be done in the future.
+
 ## Routes
 
 The following routes will be supported by the REST-Rant app.
