@@ -4,8 +4,11 @@ REST-Rant is an app where users can review restaurants.
 
 ## User Stories
 
-- As a user, I need a homepage which will display the name of the app and some nice image.
-- As a user, I need a places page that would give a short synopsis a restaurant
+- As a user, I need a homepage which will display the name of the app and some nice image that would serve as the landing page.
+- As a user, I need a page that would give a short synopsis of all reviewed restaurant, as well as the number of reviews.
+- As a user, I need a page that has all the details of a particular restaurant.
+- As a user, I need a page that would let me see all the reviews of a given restuarant
+- As a user, I need a page that would let me post a review for a given restaurant
 
 ## Color Schemes
 
