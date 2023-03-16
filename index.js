@@ -1,21 +1,25 @@
 // Require dotenv
-require('dotenv').config()
+require("dotenv").config();
 // Require express
-const express = require('express')
+const express = require("express");
 // Create an express app
-const app = express()
+const app = express();
 
-app.use('/places', require('./controllers/places'));
+// Middleware for jsx views
+app.set("view engine", "jsx");
+app.engine("jsx", require("express-react-views").createEngine());
+
+app.use("/places", require("./controllers/places"));
 
 // Home route
-app.get('/', (req, res) => {
-    res.send('Hello world!')
-})
+app.get("/", (req, res) => {
+  res.render("home");
+});
 
 // Wildcard route
-app.get('*', (req, res) => {
-    res.status(404).send('<h1>404 Page</h1>');
-})
+app.get("*", (req, res) => {
+  res.status(404).send("<h1>404 Page</h1>");
+});
 
 // Start listening on the server port
-app.listen(process.env.PORT)
+app.listen(process.env.PORT);
