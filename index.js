@@ -8,6 +8,8 @@ const app = express();
 // Middleware for jsx views
 app.set("view engine", "jsx");
 app.engine("jsx", require("express-react-views").createEngine());
+// Middleware for public views
+app.use(express.static("public"));
 
 app.use("/places", require("./controllers/places"));
 
