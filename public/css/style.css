@@ -2,8 +2,18 @@ h1 {
     text-align: center;
     color: seagreen;
   }
+
+h2 {
+    text-align: center;
+    color: red;
+}
   
 .homeImage > img {
-    width: 40%;
-    border: 5px solid black
+    width: 30%;
+    border: 5px solid black;
+}
+
+.pageNotFound > img {
+    width: 25%;
+    border: 2px solid red;
 }
