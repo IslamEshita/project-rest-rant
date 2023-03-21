@@ -1,16 +1,22 @@
 h1 {
     text-align: center;
     color: seagreen;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
   }
 
 h2 {
     text-align: center;
-    color: red;
+    color: #56b7c4;
+}
+
+.restaurantLink {
+    font-size: 2em;
+    padding: 3px;
+    text-decoration: none;
 }
   
 .homeImage > img {
-    width: 30%;
+    width: 100%;
     border: 5px solid black;
 }
 
