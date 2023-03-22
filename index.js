@@ -10,6 +10,8 @@ app.set("view engine", "jsx");
 app.engine("jsx", require("express-react-views").createEngine());
 // Middleware for public views
 app.use(express.static("public"));
+// Middlewar efor body parser
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/places", require("./controllers/places"));
 

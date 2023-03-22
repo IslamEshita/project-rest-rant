@@ -1,5 +1,6 @@
 const router = require("express").Router();
 
+// Index page
 router.get("/", (req, res) => {
   let places = [
     {
@@ -20,6 +21,12 @@ router.get("/", (req, res) => {
   res.render("places/index", { places });
 });
 
+router.post("/", (req, res) => {
+  console.log(req.body);
+  res.send("POST /places");
+});
+
+// New Page
 router.get("/new", (req, res) => {
   res.render("places/new");
 });
