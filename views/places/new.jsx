@@ -29,10 +29,6 @@ function new_form () {
                     </div>
                     <input className="btn btn-primary" type="submit" value="Add Place" />
                     </form>
-
-                    <div className="backButton">
-                        <a href="/places"><button>Go back to the index</button></a>
-                    </div>
             </main>
         </Def>
     )
