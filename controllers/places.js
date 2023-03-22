@@ -1,29 +1,31 @@
 const router = require("express").Router();
+const places = require("../models/places");
 
 // Index page
 router.get("/", (req, res) => {
-  let places = [
-    {
-      name: "H-Thai-ML",
-      city: "Seattle",
-      state: "WA",
-      cuisines: "Thai, Pan-Asian",
-      pic: "/images/hl_thai_ml.jpg",
-    },
-    {
-      name: "Coding Cat Cafe",
-      city: "Phoenix",
-      state: "AZ",
-      cuisines: "Coffee, Bakery",
-      pic: "/images/coding_cat_cafe.jpg",
-    },
-  ];
   res.render("places/index", { places });
 });
 
 router.post("/", (req, res) => {
+  // Display the incoming data
   console.log(req.body);
-  res.send("POST /places");
+
+  // Add a default image if one is not provided
+  if (!req.body.pic) {
+    req.body.pic = "http://placekitten.com/400/400";
+  }
+
+  // Add a default city if one is not provided
+  if (!req.body.city) {
+    req.body.city = "San Diego";
+  }
+
+  // Add a default state if one is not provided
+  if (!req.body.state) {
+    req.body.state = "USA";
+  }
+  places.push(req.body);
+  res.redirect("/places");
 });
 
 // New Page
