@@ -70,3 +70,12 @@ nav a:hover {
     color: #283C41;
     text-decoration: none;
 }
+
+.showImage {
+    width: 70%;
+    border: 5px solid black;
+}
+
+.showMain {
+    text-align: center;
+}
