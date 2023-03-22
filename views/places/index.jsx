@@ -2,20 +2,25 @@ const React = require('react')
 const Def = require('../default')
 
 function index (data) {
-  let placesFormatted = data.places.map((place) => {
-      return (
-        <div className="col-sm-6 restaurant">
-          <h2 className='restaurantName'>{place.name}</h2>
-          <p className="text-left cuisine">
-            {place.cuisines}
-          </p>
-          <img src={place.pic} alt={place.name} />
-          <p className="text-left location">
-            Located in {place.city}, {place.state}
-          </p>
-        </div>
-      )
-    })  
+  let placesFormatted = data.places.map((place, index) => {
+    return (
+      <div className="col-sm-6 restaurant">
+        <h2 className='restaurantName'>
+          <a href={`/places/${index}`} >
+            {place.name}
+          </a>
+        </h2>
+        <p className="text-left cuisine">
+          {place.cuisines}
+        </p>
+        <img src={place.pic} alt={place.name} />
+        <p className="text-left location">
+          Located in {place.city}, {place.state}
+        </p>
+      </div>
+    )
+  })
+    
     return (
       <Def>
           <main>
