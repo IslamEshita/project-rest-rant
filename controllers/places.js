@@ -41,7 +41,7 @@ router.get("/:id/edit", (req, res) => {
   } else if (!places[id]) {
     res.render("error404");
   } else {
-    res.send("STUB EDIT places/:id/edit");
+    res.render("places/edit", { place: places[id] });
   }
 });
 
@@ -56,6 +56,10 @@ router.delete("/:id", (req, res) => {
     places.splice(id, 1);
     res.redirect("/places");
   }
+});
+
+router.put("/:id", (req, res) => {
+  res.send("PUT STUB");
 });
 
 // Show route
