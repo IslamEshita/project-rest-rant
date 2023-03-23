@@ -33,15 +33,44 @@ router.get("/new", (req, res) => {
   res.render("places/new");
 });
 
-// Show route
-router.get("/:id", (req, res) => {
+// Edit page
+router.get("/:id/edit", (req, res) => {
   let id = Number(req.params.id);
   if (isNaN(id)) {
     res.render("error404");
   } else if (!places[id]) {
     res.render("error404");
   } else {
-    res.render("places/show", { place: places[id] });
+    res.send("STUB EDIT places/:id/edit");
+  }
+});
+
+// Delete
+router.delete("/:id", (req, res) => {
+  let id = Number(req.params.id);
+  if (isNaN(id)) {
+    res.render("error404");
+  } else if (!places[id]) {
+    res.render("error404");
+  } else {
+    places.splice(id, 1);
+    res.redirect("/places");
+  }
+});
+
+// Show route
+router.get("/:id", (req, res) => {
+  let id = Number(req.params.id);
+  console.log(id);
+  if (isNaN(id)) {
+    console.log("NAN");
+    res.render("error404");
+  } else if (!places[id]) {
+    console.log("No place with that ID");
+    res.render("error404");
+  } else {
+    console.log("Showing page");
+    res.render("places/show", { place: places[id], id });
   }
 });
 
