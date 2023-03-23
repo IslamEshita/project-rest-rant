@@ -24,7 +24,7 @@ function index (data) {
     return (
       <Def>
           <main>
-              <div class="container">
+              <div className="container">
                 <h1>Places to Rant or Rave about</h1>
                 <div className='row'>
                   {placesFormatted}
