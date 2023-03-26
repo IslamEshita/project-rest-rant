@@ -2,6 +2,7 @@ const React = require('react')
 const Def = require('../default')
 
 function show (data) {
+    console.log(data);
     return (
         <Def>
           <main className='col-lg-8 showMain'>
@@ -20,8 +21,8 @@ function show (data) {
                 <p>No comments yet!</p>
             </section>
             <section>
-                <a href={`/places/${data.id}/edit`} className="btn btn-warning">Edit</a>     
-                <form method="POST" action={`/places/${data.id}?_method=DELETE`}> 
+                <a href={`/places/${data.place.id}/edit`} className="btn btn-warning">Edit</a>     
+                <form method="POST" action={`/places/${data.place.id}?_method=DELETE`}> 
                     <button type="submit" className="btn btn-danger">Delete</button>
                 </form>    
             </section>            

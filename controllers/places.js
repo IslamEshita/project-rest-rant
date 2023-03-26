@@ -39,16 +39,36 @@ router.get("/:id", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-  res.send("PUT /places/:id stub");
+  db.Place.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(
+    (updatedRestaurant) => {
+      console.log(updatedRestaurant);
+      res.status(303).redirect("/places");
+    }
+  );
 });
 
 router.delete("/:id", (req, res) => {
-  res.send("DELETE /places/:id stub");
+  console.log(req.params.id);
+  db.Place.findByIdAndDelete(req.params.id)
+    .then((deletedBread) => {
+      console.log(`Deleted the restuarant with id: {req.params.id}`);
+    })
+    .catch((err) => {
+      console.log(`Error deleting restaurant with id: {req.params.id}`);
+      console.log(err);
+    });
+  res.status(303).redirect("/places");
 });
 
 router.get("/:id/edit", (req, res) => {
-  res.send("GET edit form stub");
+  db.Place.findById(req.params.id).then((foundRestaurant) => {
+    res.render("places/edit", {
+      place: foundRestaurant,
+    });
+  });
 });
+
+// Rants here
 
 router.post("/:id/rant", (req, res) => {
   res.send("GET /places/:id/rant stub");
