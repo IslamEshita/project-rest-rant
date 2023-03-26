@@ -11,9 +11,9 @@ function show (data) {
                 <h2>Rating</h2>
                 <p>Not Rated</p>
             </section>
-            <section className='description'>
+            <section className='description'>                
                 <h2>Description</h2>
-                <p>Located in {data.place.city},{data.place.state} and serving {data.place.cuisines}</p>
+                <p>{data.place.showEstablished()} and serving {data.place.cuisines} cuisine</p>
             </section>
             <section className='comments'>
                 <h2>Comments</h2>
