@@ -1,11 +1,16 @@
 const React = require('react')
 const Def = require('../default')
 
-function new_form () {
+function new_form (data) { 
+    let message = ''
+    if(data.message) {
+        message = (<h4 className='alert alert-danger' role ='alert'>{data.message}</h4>);
+    }  
     return (
         <Def>
             <main>
                 <h1>Add a New Place</h1>
+                {message}
                 <form method="POST" action="/places">
                     <div className="form-group">
                         <label htmlFor="name">Place Name</label>
@@ -39,4 +44,4 @@ function new_form () {
     )
 }
 
-module.exports = new_form
+module.exports = new_form;
