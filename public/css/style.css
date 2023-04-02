@@ -79,3 +79,15 @@ nav a:hover {
 .showMain {
     text-align: center;
 }
+
+section.rating {
+    margin-top: 50px;
+}
+
+.rant {
+    color: red;
+}
+
+.rave {
+    color: green;
+}

@@ -80,10 +80,37 @@ router.get("/:id/edit", (req, res) => {
   });
 });
 
-// Rants here
+// Comments here
+router.post("/:id/comment", (req, res) => {
+  // Log request
+  console.log(req.body);
+  console.log(req.params.id);
 
-router.post("/:id/rant", (req, res) => {
-  res.send("GET /places/:id/rant stub");
+  req.body.rant = req.body.rant ? true : false;
+  console.log(`Rant: = ${req.body.rant}`);
+
+  db.Place.findById(req.params.id)
+    .then((place) => {
+      console.log(`1. Found place: ${place}`);
+      db.Comment.create(req.body)
+        .then((comment) => {
+          console.log(`2. Created comment: ${comment.id}`);
+
+          place.comments.push(comment.id);
+          place.save().then(() => {
+            res.redirect(`/places/${req.params.id}`);
+            console.log("3");
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          res.render("error404");
+        });
+    })
+    .catch((err) => {
+      console.log("5");
+      res.render("error404");
+    });
 });
 
 router.delete("/:id/rant/:rantId", (req, res) => {
