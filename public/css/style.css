@@ -1,3 +1,7 @@
+body {
+    background-color: #EDECE8;
+}
+
 h1 {
     text-align: center;
     color: seagreen;
@@ -93,10 +97,6 @@ nav a:hover {
     text-align: center;
 }
 
-section.rating {
-    margin-top: 50px;
-}
-
 .rant {
     color: red;
 }
@@ -114,5 +114,9 @@ section.rating {
 }
 
 .comments {
-    margin-top: 50px;
+    margin-top: 30px;
+}
+
+.individualComment {
+    margin: 10px 0 0 0;
 }

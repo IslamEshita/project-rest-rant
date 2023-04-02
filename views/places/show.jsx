@@ -29,6 +29,10 @@ function show (data) {
             <h4 className='commentContent'>"{comment.content}"</h4>
             <h3 className='commentAuthor'>{comment.author}</h3>
             <h4 className='commentRating'>Rating: {comment.stars} stars</h4>
+
+            <form method="POST" action={`/places/${data.place.id}/comment/${comment.id}?_method=DELETE`}>
+                <input type="submit" className="btn btn-danger" value="Delete Comment" />
+            </form>
         </div>
         )
       })
@@ -40,22 +44,22 @@ function show (data) {
             <img src={data.place.pic} className='showImage'></img>
             <section>
                 <div className="row">
-                    <div className="col float-right"> <a href={`/places/${data.place.id}/edit`} className="btn btn-warning">Edit</a></div>
-                    <div className="col float-right">
+                    <div className="col"> <a href={`/places/${data.place.id}/edit`} className="btn btn-warning float-right">Edit</a></div>
+                    <div className="col">
                         <form method="POST" action={`/places/${data.place.id}?_method=DELETE`}> 
                             <button type="submit" className="btn btn-danger">Delete</button>
                         </form>  
                     </div>
                 </div>
+            </section>
+            <section className='description'>                
+                <h2>Description</h2>
+                <p>{data.place.showEstablished()} and serves {data.place.cuisines} cuisine</p>
             </section>     
             <section className='rating'>
                 <h2>Rating</h2>
                 {rating}
-            </section>
-            <section className='description'>                
-                <h2>Description</h2>
-                <p>{data.place.showEstablished()} and serving {data.place.cuisines} cuisine</p>
-            </section>
+            </section>           
             <section className='comments'>
                 <h2>Comments</h2>
                 <div className="row">
@@ -96,7 +100,7 @@ function show (data) {
                                 <label htmlFor="rant">Rant</label>
                             </div>
                         </div>
-                        <button type="submit" className="btn btn-danger">Add your comment</button>                    
+                        <button type="submit" className="btn btn-info">Add your comment</button>                    
                     </form>
                 </article>
             </section>       

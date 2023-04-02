@@ -87,19 +87,15 @@ router.post("/:id/comment", (req, res) => {
   console.log(req.params.id);
 
   req.body.rant = req.body.rant ? true : false;
-  console.log(`Rant: = ${req.body.rant}`);
 
   db.Place.findById(req.params.id)
     .then((place) => {
       console.log(`1. Found place: ${place}`);
       db.Comment.create(req.body)
         .then((comment) => {
-          console.log(`2. Created comment: ${comment.id}`);
-
           place.comments.push(comment.id);
           place.save().then(() => {
             res.redirect(`/places/${req.params.id}`);
-            console.log("3");
           });
         })
         .catch((err) => {
@@ -108,13 +104,17 @@ router.post("/:id/comment", (req, res) => {
         });
     })
     .catch((err) => {
-      console.log("5");
       res.render("error404");
     });
 });
 
-router.delete("/:id/rant/:rantId", (req, res) => {
-  res.send("GET /places/:id/rant/:rantId stub");
+router.delete("/:id/comment/:commentId", async (req, res) => {
+  console.log("Req is" + req.body);
+  console.log(req.params);
+  console.log(req.body);
+
+  await db.Comment.findByIdAndDelete(req.params.commentId);
+  res.redirect(`/places/${req.params.id}`);
 });
 
 module.exports = router;
