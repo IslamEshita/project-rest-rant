@@ -22,7 +22,7 @@ function index (data) {
   })
     
     return (
-      <Def>
+      <Def title={data.title}>
           <main>
               <div className="container">
                 <h1 className='indexHeader'>Places to Rant or Rave About</h1>

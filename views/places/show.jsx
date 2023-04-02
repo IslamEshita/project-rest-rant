@@ -38,7 +38,7 @@ function show (data) {
       })
     }
     return (
-        <Def>
+        <Def title={data.title}>
           <main className='col-lg-8 showMain'>
             <h1>{data.place.name}</h1>
             <img src={data.place.pic} className='showImage'></img>

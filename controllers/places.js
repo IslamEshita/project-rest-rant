@@ -4,7 +4,7 @@ const db = require("../models");
 router.get("/", (req, res) => {
   db.Place.find()
     .then((places) => {
-      res.render("places/index", { places });
+      res.render("places/index", { places, title: "Restaurant Index" });
     })
     .catch((err) => {
       console.log(err);
@@ -42,7 +42,7 @@ router.get("/:id", (req, res) => {
     .populate("comments")
     .then((place) => {
       console.log(place.comments);
-      res.render("places/show", { place });
+      res.render("places/show", { place, title: place.name });
     })
     .catch((err) => {
       console.log("err", err);

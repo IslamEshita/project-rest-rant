@@ -3,7 +3,7 @@ const Def = require('./default')
 
 function home() {
     return (
-      <Def>
+      <Def title="Rest-Rant Home Page">
           <main>
               <h1>REST-Rant</h1>
               <h2>A cool restaurant review app</h2>
