@@ -5,11 +5,27 @@ function show (data) {
     let comments = (
         <h3 className='inactive'>No comments yet!</h3>
     )
+    let rating = (
+        <h3 className='inactive'>Not yet rated</h3>
+    )
     if (data.place.comments.length) {
+        let sumRatings = data.place.comments.reduce((total, comment) => {
+            return total + comment.stars
+          }, 0);
+          let averageRating = Math.round(sumRatings / data.place.comments.length);
+          let stars = ''
+          for(let i=1; i<=averageRating; i++) {
+            stars += '⭐'
+          }
+          rating = (
+            <h3>
+              {stars} stars
+            </h3>
+          )
         comments = data.place.comments.map(comment => {
         return (
         <div className="individualComment border col-md-4">
-            <h2 className={comment.rant ? 'rant' : 'rave'}>{comment.rant ? 'Rant!' : 'Rave!'}</h2>
+            <h2 className={comment.rant ? 'rant' : 'rave'}>{comment.rant ? 'Rant! 😡' : 'Rave! 😄'}</h2>
             <h4 className='commentContent'>"{comment.content}"</h4>
             <h3 className='commentAuthor'>{comment.author}</h3>
             <h4 className='commentRating'>Rating: {comment.stars} stars</h4>
@@ -34,7 +50,7 @@ function show (data) {
             </section>     
             <section className='rating'>
                 <h2>Rating</h2>
-                <p>Not Rated</p>
+                {rating}
             </section>
             <section className='description'>                
                 <h2>Description</h2>
