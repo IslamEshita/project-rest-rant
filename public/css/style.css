@@ -10,7 +10,7 @@ h2 {
 }
 
 .restaurantLink {
-    font-size: 2em;
+    font-size: 1.5em;
     padding: 3px;
     text-decoration: none;
 }
@@ -25,6 +25,10 @@ h2 {
     border: 2px solid red;
 }
 
+.indexHeader {
+    margin-bottom: 30px;
+}
+
 .restaurant > img {
     max-width: 100%;
     max-height: 100%;
@@ -36,8 +40,17 @@ h2 {
     text-align: left;
     color: skyblue;
 }
+
+.restuarantLocation {
+    text-align: center;
+    font-size: 1.1em;
+    font-style: italic;
+}
+
 .cuisine {
     color: #758165;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 .location {
@@ -90,4 +103,16 @@ section.rating {
 
 .rave {
     color: green;
+}
+
+.commentContent {
+    font-style: italic;
+}
+
+.commentAuthor {
+    font-weight: bold;
+}
+
+.comments {
+    margin-top: 50px;
 }

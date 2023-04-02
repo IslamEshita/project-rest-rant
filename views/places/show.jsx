@@ -8,11 +8,11 @@ function show (data) {
     if (data.place.comments.length) {
         comments = data.place.comments.map(comment => {
         return (
-        <div className="border">
+        <div className="individualComment border col-md-4">
             <h2 className={comment.rant ? 'rant' : 'rave'}>{comment.rant ? 'Rant!' : 'Rave!'}</h2>
-            <h4>{comment.content}</h4>
-            <h3><strong>{comment.author}</strong></h3>
-            <h4>Rating: {comment.stars}</h4>
+            <h4 className='commentContent'>"{comment.content}"</h4>
+            <h3 className='commentAuthor'>{comment.author}</h3>
+            <h4 className='commentRating'>Rating: {comment.stars} stars</h4>
         </div>
         )
       })
@@ -24,8 +24,8 @@ function show (data) {
             <img src={data.place.pic} className='showImage'></img>
             <section>
                 <div className="row">
-                    <div className="col"> <a href={`/places/${data.place.id}/edit`} className="btn btn-warning">Edit</a></div>
-                    <div className="col">
+                    <div className="col float-right"> <a href={`/places/${data.place.id}/edit`} className="btn btn-warning">Edit</a></div>
+                    <div className="col float-right">
                         <form method="POST" action={`/places/${data.place.id}?_method=DELETE`}> 
                             <button type="submit" className="btn btn-danger">Delete</button>
                         </form>  
@@ -42,7 +42,9 @@ function show (data) {
             </section>
             <section className='comments'>
                 <h2>Comments</h2>
+                <div className="row">
                 {comments}
+                </div>                
                 <article className="newComment">
                     <h3>Got your own rant or rave?</h3>
                     <form method="POST" action={`/places/${data.place.id}/comment`}>                    
